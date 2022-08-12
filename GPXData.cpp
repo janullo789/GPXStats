@@ -50,10 +50,22 @@ void GPXData::readData(char* titleGPX)
         result = ele->QueryDoubleText(&insertParm.eles);
         assert(result == tinyxml2::XML_SUCCESS);
 
-        tinyxml2::XMLElement *TimeDate = trkpt->FirstChildElement("time");
-        assert(TimeDate);
+        tinyxml2::XMLElement *timeDate = trkpt->FirstChildElement("time");
+        assert(timeDate);
 
-        insertParm.times = stringToTimeDate((std::string)TimeDate->GetText());
+        insertParm.times = stringToTimeDate((std::string)timeDate->GetText());
+
+        tinyxml2::XMLElement *extensions = trkpt->FirstChildElement("extensions");
+        assert(extensions);
+
+        tinyxml2::XMLElement *gpxtpxTPE = extensions->FirstChildElement("gpxtpx:TrackPointExtension");
+        assert(gpxtpxTPE);
+
+        tinyxml2::XMLElement *temp = gpxtpxTPE->FirstChildElement("gpxtpx:atemp");
+        assert(temp);
+
+        result = temp->QueryDoubleText(&insertParm.temps);
+        assert(result == tinyxml2::XML_SUCCESS);
 
         parm.push_back(insertParm);
     }

@@ -3,7 +3,7 @@
 
 struct GPXParameter
 {
-    double lats, lons, eles;
+    double lats, lons, eles, temps;
     std::time_t times;
 };
 
