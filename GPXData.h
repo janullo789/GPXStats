@@ -10,15 +10,20 @@
 class GPXData
 {
 public:
-    GPXData(char*);
+    GPXData(const char*);
 
-    long double getDistance();
-    double getTime();
+    double getDistance();
+    int getDistanceItr(double);
     double getElevation();
+    double getTime();
+    std::string getTimeFormat(double);
+    double getAvgTemp();
+    void cropData(double km);
 
 private:
+    const char* titleGPX;
     std::vector<GPXParameter> parm;
-    void readData(char* titleGPX);
+    void readData();
 
 
 };

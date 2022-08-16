@@ -63,14 +63,14 @@ build cmake_object_order_depends_target_GPXStats: phony || CMakeFiles/GPXStats.d
 
 build CMakeFiles/GPXStats.dir/main.cpp.obj: CXX_COMPILER__GPXStats_Debug C$:/Users/Dell/Documents/Studia/Projekty$ C++/GPXStats/main.cpp || cmake_object_order_depends_target_GPXStats
   DEP_FILE = CMakeFiles\GPXStats.dir\main.cpp.obj.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -static-libstdc++ -static-libgcc -g -std=gnu++14
   INCLUDES = -IC:/tinyxml2/include
   OBJECT_DIR = CMakeFiles\GPXStats.dir
   OBJECT_FILE_DIR = CMakeFiles\GPXStats.dir
 
 build CMakeFiles/GPXStats.dir/GPXData.cpp.obj: CXX_COMPILER__GPXStats_Debug C$:/Users/Dell/Documents/Studia/Projekty$ C++/GPXStats/GPXData.cpp || cmake_object_order_depends_target_GPXStats
   DEP_FILE = CMakeFiles\GPXStats.dir\GPXData.cpp.obj.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -static-libstdc++ -static-libgcc -g -std=gnu++14
   INCLUDES = -IC:/tinyxml2/include
   OBJECT_DIR = CMakeFiles\GPXStats.dir
   OBJECT_FILE_DIR = CMakeFiles\GPXStats.dir
@@ -84,7 +84,7 @@ build CMakeFiles/GPXStats.dir/GPXData.cpp.obj: CXX_COMPILER__GPXStats_Debug C$:/
 # Link the executable GPXStats.exe
 
 build GPXStats.exe: CXX_EXECUTABLE_LINKER__GPXStats_Debug CMakeFiles/GPXStats.dir/main.cpp.obj CMakeFiles/GPXStats.dir/GPXData.cpp.obj | C$:/tinyxml2/lib/libtinyxml2.a
-  FLAGS = -g
+  FLAGS = -static-libstdc++ -static-libgcc -g
   LINK_LIBRARIES = C:/tinyxml2/lib/libtinyxml2.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\GPXStats.dir
   POST_BUILD = cd .
