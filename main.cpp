@@ -10,7 +10,7 @@ void cropMenu(GPXData &);
 
 int main()
 {
-    char* nameOfFirstFile = "MTBCROSS_Sobk_w.gpx";
+    char* nameOfFirstFile = "../../MTBCROSS_Sobk_w.gpx";
 
     GPXData file1(nameOfFirstFile);
 
