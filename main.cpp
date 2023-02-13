@@ -2,6 +2,7 @@
 #include <iomanip>
 
 #include "GPXData.h"
+#include "GPXList.h"
 
 using namespace std;
 
@@ -10,6 +11,8 @@ void cropMenu(GPXData &);
 
 int main()
 {
+    GPXList(".");
+
     char* nameOfFirstFile = "MTBCROSS_Sobk_w.gpx";
 
     GPXData file1(nameOfFirstFile);

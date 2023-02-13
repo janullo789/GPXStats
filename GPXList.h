@@ -6,12 +6,20 @@
 #define GPXSTATS_GPXLIST_H
 
 
+#include <iostream>
+#include <string>
+#include <dirent.h>
+#include <vector>
+
 class GPXList
 {
 public:
-    GPXList(const char*);
+    GPXList(std::string);
 
 private:
+    std::string path;
+    std::vector<std::string> filesGPX;
+    std::vector<std::string> listGPX();
 };
 
 
