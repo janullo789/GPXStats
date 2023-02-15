@@ -20,6 +20,7 @@ private:
     std::string path;
     std::vector<std::string> filesGPX;
     std::vector<std::string> listGPX();
+    void showList();
 };
 
 

@@ -7,7 +7,8 @@
 GPXList::GPXList(std::string path)
 {
     this->path = path;
-    listGPX();
+    filesGPX = listGPX();
+    showList();
 }
 
 std::vector<std::string> GPXList::listGPX()
@@ -22,15 +23,24 @@ std::vector<std::string> GPXList::listGPX()
             std::string fileName = ent->d_name;
             std::string fileExtension = fileName.substr(fileName.find_last_of(".") + 1);
             if (fileExtension == "gpx") {
-                std::cout << fileName << std::endl;
+                //std::cout << fileName << std::endl;
+                filesGPX.push_back(fileName);
             }
         }
         closedir(dir);
     } else {
         // Błąd otwierania folderu
         std::cerr << "Nie można otworzyć folderu: " << path << std::endl;
-        return filesGPX;;
     }
     return filesGPX;
+}
 
+void GPXList::showList()
+{
+    int i = 1;
+    for(std::string file : filesGPX)
+    {
+        std::cout << i << "." << file << std::endl;
+        i++;
+    }
 }

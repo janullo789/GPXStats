@@ -11,7 +11,7 @@ void cropMenu(GPXData &);
 
 int main()
 {
-    GPXList(".");
+    GPXList("GPXfiles/../.");
 
     char* nameOfFirstFile = "MTBCROSS_Sobk_w.gpx";
 
