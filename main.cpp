@@ -2,6 +2,7 @@
 #include <iomanip>
 
 #include "GPXData.h"
+#include "GPXList.h"
 
 using namespace std;
 
@@ -10,9 +11,11 @@ void cropMenu(GPXData &);
 
 int main()
 {
-    char* nameOfFirstFile = "../../MTBCROSS_Sobk_w.gpx";
+    cout << setw(50) << "GPXStats - analyze your activities!" << endl;
 
-    GPXData file1(nameOfFirstFile);
+    const char* nameOfFile = GPXList("GPXfiles/../.").menu().c_str();
+
+    GPXData file1(nameOfFile);
 
     while(mainMenu(file1)){}
 
@@ -22,8 +25,7 @@ int main()
 bool mainMenu(GPXData &file)
 {
     char choice;
-    cout << setw(50) << "GPXStats - analyze your activities!" << endl;
-    cout << "1. Show distance" << endl;
+    cout << "\n1. Show distance" << endl;
     cout << "2. Show elevation" << endl;
     cout << "3. Show time" << endl;
     cout << "4. Show average temperature" << endl;
@@ -36,16 +38,16 @@ bool mainMenu(GPXData &file)
     switch (choice)
     {
         case '1':
-            cout << file.getDistance() << endl;
+            cout << file.getDistance() << " km" << endl;
             break;
         case '2':
-            cout << file.getElevation() << endl;
+            cout << file.getElevation() << " m" << endl;
             break;
         case '3':
             cout << file.getTimeFormat(file.getTime()) << endl;
             break;
         case '4':
-            cout << file.getAvgTemp() << endl;
+            cout << file.getAvgTemp() << " km/h" <<endl;
             break;
         case '5':
             cropMenu(file);
