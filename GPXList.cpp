@@ -8,7 +8,6 @@ GPXList::GPXList(std::string path)
 {
     this->path = path;
     filesGPX = listGPX();
-    showList();
 }
 
 std::vector<std::string> GPXList::listGPX()
@@ -18,19 +17,21 @@ std::vector<std::string> GPXList::listGPX()
     std::vector<std::string> filesGPX;
 
     dir = opendir(path.c_str());
-    if (dir != NULL) {
-        while ((ent = readdir(dir)) != NULL) {
+    if (dir != NULL)
+    {
+        while ((ent = readdir(dir)) != NULL)
+        {
             std::string fileName = ent->d_name;
             std::string fileExtension = fileName.substr(fileName.find_last_of(".") + 1);
-            if (fileExtension == "gpx") {
-                //std::cout << fileName << std::endl;
+            if (fileExtension == "gpx")
+            {
                 filesGPX.push_back(fileName);
             }
         }
         closedir(dir);
-    } else {
-        // Błąd otwierania folderu
-        std::cerr << "Nie można otworzyć folderu: " << path << std::endl;
+    } else
+    {
+        std::cerr << "Cannot open catalog " << path << std::endl;
     }
     return filesGPX;
 }
@@ -43,4 +44,17 @@ void GPXList::showList()
         std::cout << i << "." << file << std::endl;
         i++;
     }
+}
+
+std::string GPXList::menu()
+{
+    int choice;
+    do
+    {
+        std::cout << "Choose a file (enter the option number):" << std::endl;
+        showList();
+        std::cin >> choice;
+    } while (choice < 1 || choice > filesGPX.size());
+
+    return filesGPX[choice - 1];
 }

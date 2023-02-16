@@ -15,6 +15,7 @@ class GPXList
 {
 public:
     GPXList(std::string);
+    std::string menu();
 
 private:
     std::string path;
