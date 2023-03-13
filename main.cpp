@@ -13,7 +13,7 @@ int main()
 {
     cout << setw(50) << "GPXStats - analyze your activities!" << endl;
 
-    const char* nameOfFile = GPXList("GPXfiles/../.").menu().c_str();
+    const char* nameOfFile = GPXList(".").menu().c_str();
 
     GPXData file1(nameOfFile);
 

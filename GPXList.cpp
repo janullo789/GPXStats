@@ -7,7 +7,15 @@
 GPXList::GPXList(std::string path)
 {
     this->path = path;
-    filesGPX = listGPX();
+    try {
+        filesGPX = listGPX();
+        if (filesGPX.empty()) {
+            throw std::runtime_error("No one .gpx file in this path!");
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(EXIT_FAILURE);
+    }
 }
 
 std::vector<std::string> GPXList::listGPX()
@@ -51,7 +59,7 @@ std::string GPXList::menu()
     int choice;
     do
     {
-        std::cout << "Choose a file (enter the option number):" << std::endl;
+        std::cout << "Choose a file (enter the option number or press 0 to skip):" << std::endl;
         showList();
         std::cin >> choice;
     } while (choice < 1 || choice > filesGPX.size());
